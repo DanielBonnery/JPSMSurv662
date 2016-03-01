@@ -1,0 +1,62 @@
+\name{acs_county_2005}
+\alias{acs_county_2005}
+\docType{acs_county_2005}
+\title{ACS 2005 County  data}
+\description{
+  
+}
+\usage{data(acs_county_2005)}
+\format{
+  \describe{
+    \name{acs_county_2005}
+\item{Year}{Year}
+ \item{State}{State}
+ \item{County_ID}{County_ID}
+ \item{State__County_Name}{State__County_Name}
+ \item{All_Ages_SAIPE_Poverty_Universe}{All_Ages_SAIPE_Poverty_Universe}
+ \item{All_Ages_in_Poverty_Count}{All_Ages_in_Poverty_Count}
+ \item{All_Ages_in_Poverty_Count_LB_90_}{All_Ages_in_Poverty_Count_LB_90_}
+ \item{All_Ages_in_Poverty_Count_UB_90_}{All_Ages_in_Poverty_Count_UB_90_}
+ \item{X90_Confidence_Interval_All_Ages_in_Poverty_Count_}{X90_Confidence_Interval_All_Ages_in_Poverty_Count_}
+ \item{All_Ages_in_Poverty_Percent}{All_Ages_in_Poverty_Percent}
+ \item{All_Ages_in_Poverty_Percent_LB_90_}{All_Ages_in_Poverty_Percent_LB_90_}
+ \item{All_Ages_in_Poverty_Percent_UB_90_}{All_Ages_in_Poverty_Percent_UB_90_}
+ \item{X90_Confidence_Interval_All_Ages_in_Poverty_Percent_}{X90_Confidence_Interval_All_Ages_in_Poverty_Percent_}
+ \item{Under_Age_18_SAIPE_Poverty_Universe}{Under_Age_18_SAIPE_Poverty_Universe}
+ \item{Under_Age_18_in_Poverty_Count}{Under_Age_18_in_Poverty_Count}
+ \item{Under_Age_18_in_Poverty_Count_LB_90_}{Under_Age_18_in_Poverty_Count_LB_90_}
+ \item{Under_Age_18_in_Poverty_Count_UB_90_}{Under_Age_18_in_Poverty_Count_UB_90_}
+ \item{X90_Confidence_Interval_Under_Age_18_in_Poverty_Count_}{X90_Confidence_Interval_Under_Age_18_in_Poverty_Count_}
+ \item{Under_Age_18_in_Poverty_Percent}{Under_Age_18_in_Poverty_Percent}
+ \item{Under_Age_18_in_Poverty_Percent_LB_90_}{Under_Age_18_in_Poverty_Percent_LB_90_}
+ \item{Under_Age_18_in_Poverty_Percent_UB_90_}{Under_Age_18_in_Poverty_Percent_UB_90_}
+ \item{X90_Confidence_Interval_Under_Age_18_in_Poverty_Percent_}{X90_Confidence_Interval_Under_Age_18_in_Poverty_Percent_}
+ \item{Ages_5_to_17_in_Families_SAIPE_Poverty_Universe}{Ages_5_to_17_in_Families_SAIPE_Poverty_Universe}
+ \item{Ages_5_to_17_in_Families_in_Poverty_Count}{Ages_5_to_17_in_Families_in_Poverty_Count}
+ \item{Ages_5_to_17_in_Families_in_Poverty_Count_LB_90_}{Ages_5_to_17_in_Families_in_Poverty_Count_LB_90_}
+ \item{Ages_5_to_17_in_Families_in_Poverty_Count_UB_90_}{Ages_5_to_17_in_Families_in_Poverty_Count_UB_90_}
+ \item{X90_Confidence_Interval_Ages_5_to_17_in_Families_in_Poverty_Count_}{X90_Confidence_Interval_Ages_5_to_17_in_Families_in_Poverty_Count_}
+ \item{Ages_5_to_17_in_Families_in_Poverty_Percent}{Ages_5_to_17_in_Families_in_Poverty_Percent}
+ \item{Ages_5_to_17_in_Families_in_Poverty_Percent_LB_90_}{Ages_5_to_17_in_Families_in_Poverty_Percent_LB_90_}
+ \item{Ages_5_to_17_in_Families_in_Poverty_Percent_UB_90_}{Ages_5_to_17_in_Families_in_Poverty_Percent_UB_90_}
+ \item{X90_Confidence_Interval_Ages_5_to_17_in_Families_in_Poverty_Percent_}{X90_Confidence_Interval_Ages_5_to_17_in_Families_in_Poverty_Percent_}
+ \item{Under_Age_5_SAIPE_Poverty_Universe}{Under_Age_5_SAIPE_Poverty_Universe}
+ \item{Under_Age_5_in_Poverty_Count}{Under_Age_5_in_Poverty_Count}
+ \item{Under_Age_5_in_Poverty_Count_LB_90_}{Under_Age_5_in_Poverty_Count_LB_90_}
+ \item{Under_Age_5_in_Poverty_Count_UB_90_}{Under_Age_5_in_Poverty_Count_UB_90_}
+ \item{X90_Confidence_Interval_Under_Age_5_in_Poverty_Count_}{X90_Confidence_Interval_Under_Age_5_in_Poverty_Count_}
+ \item{Under_Age_5_in_Poverty_Percent}{Under_Age_5_in_Poverty_Percent}
+ \item{Under_Age_5_in_Poverty_Percent_LB_90_}{Under_Age_5_in_Poverty_Percent_LB_90_}
+ \item{Under_Age_5_in_Poverty_Percent_UB_90_}{Under_Age_5_in_Poverty_Percent_UB_90_}
+ \item{X90_Confidence_Interval_Under_Age_5_in_Poverty_Percent_}{X90_Confidence_Interval_Under_Age_5_in_Poverty_Percent_}
+ \item{Median_Household_Income_in_Dollars}{Median_Household_Income_in_Dollars}
+ \item{Median_Household_Income_in_Dollars_LB_90_}{Median_Household_Income_in_Dollars_LB_90_}
+ \item{Median_Household_Income_in_Dollars_UB_90_}{Median_Household_Income_in_Dollars_UB_90_}
+ \item{X90_Confidence_Interval_Median_Household_Income_in_Dollars_}{X90_Confidence_Interval_Median_Household_Income_in_Dollars_}
+  }
+}
+\source{ ?}
+\examples{
+  data(acs_county_2005)
+}
+\keyword{datasets}
