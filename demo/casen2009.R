@@ -31,21 +31,27 @@ pikls<-matrix(n*(n-1)/(N*(N-1)),n,n)
 diag(pikls)<-n/N
 sh<-is.element(householdlevel$FOLIO,s)
 attach(householdlevel[sh,])
-variables<-model.matrix(~POBRE*REGION-POBRE-REGION-1)
-vars<-sapply(1:15,function(i){
-  vartaylor_ratio(Ys =variables[,2*i],Xs=variables[,2*i-1],pikls =pikls)})
-vars<-matrix(unlist(vars),2,15)
-vars<-rbind(vars,vars[c(1,1),]+matrix(c(-1,1),2,1)%*%sqrt(vars[2,])*qnorm(.975))
-dimnames(vars)<-list(c("Estimated Poverty Rate","Variance estimate","CI, lower bound","CI, upper bound"),levels(REGION))
-vars<-rbind("True Poverty Rate"=aggregate(householdlevel$POBRE,                                          mean,by=list(householdlevel$REGION))$x,
-            "Sample Size"=table(householdlevel[sh,]$REGION),
-            "Population Size"=table(householdlevel$REGION),
-            vars)
-ord<-order(vars[4,])
+hatpi<-table(POBRE,REGION)[2,]/apply(table(POBRE,REGION),2,sum)
+pi<-aggregate(householdlevel$POBRE,mean,by=list(householdlevel$REGION))$x
+ni<-table(REGION)
+Ni<-table(householdlevel$REGION)
+expni<-Ni*n/N
+hatVariance<-(1-ni/Ni)*(hatpi*(1-hatpi))/(ni-1)
+Variance<-(1-ni/Ni)*(pi*(1-pi))/(expni-1)
+estimates<-rbind(hatpi,
+                 hatVariance,
+                 "Sample Size"=table(householdlevel[sh,]$REGION),
+                 rbind(hatpi,hatpi)+matrix(c(-1,1),2,1)%*%sqrt(hatVariance)*qnorm(.975))
+dimnames(estimates)<-list(c("Poverty Rate","Variance","Size","CI, LB","CI, UB"),levels(REGION))
+truevalues<-rbind("Poverty Rate"=pi,
+                  "Variance"=Variance, 
+                  "Size"=Ni,
+                  "CI, LB"=pi-qnorm(0.975)*sqrt(Variance),
+                  "CI, UB"=pi+qnorm(0.975)*sqrt(Variance))
+ord<-order(Variance)
 
-  plot(c(1,15),range(vars[c(1,6:7),]),type='n',xlab='Region',ylab='Poverty rate');
-points(vars[1,ord],pch=19);
-points(vars[4,ord]);
-segments(x0 = 1:15,x1=1:15,y0=vars[6,ord],y1=vars[7,ord])
+plot(c(1,length(pi)),range(estimates[4:5,]),type='n',xlab='Region',ylab='Poverty rate');
+points(pi[ord],pch=19);
+points(hatpi[ord],col="red");
+segments(x0 = 1:15,x1=1:15,y0=estimates[4,ord],y1=estimates[5,ord])
 
-  
