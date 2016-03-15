@@ -7,8 +7,7 @@
 }
 \usage{data(beef)}
 \format{
- This table contains the data of the paper  "An Error-Components Model for Prediction of County Crop Areas Using Survey and Satellite Data" by 
-   George E. Battese, Rachel M. Harter and Wayne A. Fuller (Vol. 83, No. 401 (Mar., 1988), pp. 28-36)
+ This table contains the data of the paper  "Chambers, Raymond L., Alan H. Dorfman, and Thomas E. Wehrly. "Bias robust estimation in finite populations using nonparametric calibration." Journal of the American Statistical Association 88.421 (1993): 268-277.
   \describe{
     \name{beef}
     \item{x}{X variable} 
