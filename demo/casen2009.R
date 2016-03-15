@@ -25,7 +25,7 @@ counts<-table(householdlevel$FOLIO)
 toremove<-names(counts[counts>1])
 householdlevel<-householdlevel[!is.element(householdlevel$FOLIO,toremove),]
 householdlevel$POBRE<-is.element(householdlevel$CORTE,levels(householdlevel$CORTE)[1:2])
-s=sample(unique(householdlevel$FOLIO),20)
+s=sample(unique(householdlevel$FOLIO),2000)
 n<-length(s)
 pikls<-matrix(n*(n-1)/(N*(N-1)),n,n)
 diag(pikls)<-n/N
