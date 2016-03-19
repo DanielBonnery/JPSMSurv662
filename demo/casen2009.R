@@ -1,22 +1,4 @@
 data(casen2009)
-casen2009<-as.data.frame(Casen2009)
-levels(casen2009$REGION)<-c("Tarapac",                         
-                            "Antofagasta"                         ,
-                            "Atacama"                             ,
-                            "Coquimbo"                            ,
-                            "Valparaeso"                       ,
-                            "Libertador Bernardo O'Higgins"    ,
-                            "Maule"                               ,
-                            "Bio Bio"                       ,
-                            "La Araucana"                     ,
-                            "Los Lagos"                           ,
-                            "Aysen"                            ,
-                            "Magallanes Y La Antartica Chilena",
-                            "Region Metropolitana"             ,
-                            "Los Rios"                            ,
-                            "Arica y Parinacota")
-library(sampling)
-#metro=casen2009$REGION==levels(casen2009$REGION)[13]
 set.seed(1)
 N<-length(unique(casen2009$FOLIO))
 householdlevel<-unique(casen2009[c("FOLIO","CORTE","REGION","COMUNA")])
@@ -55,3 +37,24 @@ points(pi[ord],pch=19);
 points(hatpi[ord],col="red");
 segments(x0 = 1:15,x1=1:15,y0=estimates[4,ord],y1=estimates[5,ord])
 
+
+#Use of survey package
+
+data(casen2009)
+library(survey)
+casen2009$POBRE<-is.element(casen2009$CORTE,levels(casen2009$CORTE)[1:2])
+casen2009.design<-
+  svydesign(id=~SEGMENTO+FOLIO,
+            strata=~ESTRATO,
+            data=casen2009,
+            weights=~EXPR)
+options(survey.lonely.psu = "adjust")
+povertyratepercomuna<-svyby(~POBRE,~COMUNA,casen2009.design,svymean, vartype=c("se","cv","var"))
+povertyratepercomuna$L<-povertyratepercomuna$POBRETRUE-qnorm(.975)*povertyratepercomuna$se.POBRETRUE
+povertyratepercomuna$U<-povertyratepercomuna$POBRETRUE+qnorm(.975)*povertyratepercomuna$se.POBRETRUE
+povertyratepercomuna<-povertyratepercomuna[order(povertyratepercomuna$POBRETRUE),]
+povertyratepercomuna$COMUNA<-factor(povertyratepercomuna$COMUNA,povertyratepercomuna$COMUNA)
+library(ggplot2)
+plot1<-ggplot(povertyratepercomuna, aes(x = COMUNA, y = POBRETRUE)) +
+  geom_point(size = 4) +
+  geom_errorbar(aes(ymax = U, ymin = L))
