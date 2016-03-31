@@ -1,12 +1,10 @@
 data(casen2009)
 set.seed(1)
 N<-length(unique(casen2009$FOLIO))
-householdlevel<-unique(casen2009[c("FOLIO","CORTE","REGION","COMUNA")])
-#remove duplicates
-counts<-table(householdlevel$FOLIO)
-toremove<-names(counts[counts>1])
-householdlevel<-householdlevel[!is.element(householdlevel$FOLIO,toremove),]
-householdlevel$POBRE<-is.element(householdlevel$CORTE,levels(householdlevel$CORTE)[1:2])
+library(survey)
+householdlevel<-casen2009[casen2009$O==1,]
+householdlevel$POBRE<-householdlevel$CORTE!="No pobre"
+#Use of sampling package
 s=sample(unique(householdlevel$FOLIO),2000)
 n<-length(s)
 pikls<-matrix(n*(n-1)/(N*(N-1)),n,n)
