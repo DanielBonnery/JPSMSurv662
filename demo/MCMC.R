@@ -1,8 +1,8 @@
 require("R2jags")
 require("plyr")
 require("abind")
-library("JPSMdataintegration")
-data(baseball,package="JPSMdataintegration")
+library("dataBaseball")
+data(baseball)
 attach(baseball)
 m<-45
 #1. Run jags
