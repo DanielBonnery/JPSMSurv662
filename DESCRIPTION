@@ -4,5 +4,6 @@ Version: 0.0.0.9000
 Authors@R: person("Daniel", "Bonn\'{e}ry", , "dbonnery@umd.edu", role = c("aut", "cre"))
 Description: This package contains Data and programs for the JPSM Lectures "Surv662 Small Area Estimation methods" by Partha Lahiri
 Depends: R (>= 3.0.0)
+Remotes: DanielBonnery/dataBeef
 License: GPL?
 LazyData: true
