@@ -8,6 +8,7 @@ Remotes: DanielBonnery/dataBeef,
   DanielBonnery/dataCASEN,
   DanielBonnery/dataCountyCropSurveySatellite,
   DanielBonnery/dataBaseball,
-  DanielBonnery/dataCholesterol
+  DanielBonnery/dataCholesterol,
+  DanielBonnery/dataLaborForce
 License: GPL?
 LazyData: true

@@ -1,5 +1,6 @@
 require("abind")
 require(sampling)
+require(dataBeef)
 data(beef)
 N=nrow(beef)
 attach(beef)

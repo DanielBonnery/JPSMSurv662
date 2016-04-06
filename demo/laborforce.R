@@ -1,3 +1,4 @@
+library(dataLaborForce)
 data(lfstate)
 attach(lfstate[order(lfstate$ST,lfstate$Year,lfstate$month),])
 vardir<-diag(StdCPSUn^2)

@@ -1,3 +1,4 @@
+require(dataCASEN)
 data(casen2009)
 library(survey)
 householdlevel<-casen2009[casen2009$O==1,]

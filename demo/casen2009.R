@@ -1,3 +1,4 @@
+require(dataCASEN)
 data(casen2009)
 set.seed(1)
 N<-length(unique(casen2009$FOLIO))
