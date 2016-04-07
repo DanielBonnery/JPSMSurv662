@@ -1,5 +1,4 @@
-library(JPSMSurv662)
-data(casen2009)
+library(dataCASEN)
 library(survey)
 X<-casen2009[casen2009$O==1,]
 X$POBRE=X$CORTE!="No pobre"
