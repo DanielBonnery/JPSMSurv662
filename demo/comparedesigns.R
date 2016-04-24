@@ -1,5 +1,8 @@
 library(dataCASEN)
 library(survey)
+a<-1820
+b<-12
+n<-a+b*15
 X<-casen2009[casen2009$O==1,]
 X$POBRE=X$CORTE!="No pobre"
 X<-X[order(X$REGION,X$ZONA),]
@@ -8,9 +11,6 @@ X$N<-N
 Nh<-data.frame(table(X$REGION))
 names(Nh)<-c("REGION","Nh")
 X<-merge(X,Nh,by="REGION")
-a<-1820
-b<-12
-n<-a+b*15
 X$STRATA2<-paste0(X$REGION,X$ZONA)
 Nh2<-data.frame(table(X$STRATA2))
 names(Nh2)<-c("STRATA2","Nh2")
@@ -39,3 +39,8 @@ library(ggplot2)
 ggplot(data = allreplicates2[allreplicates2$variable=="Estimate" ,], aes(x=.id, y=value,fill=.id))+
   geom_boxplot()+
   facet_grid(~REGION)
+
+plyr::daply(allreplicates2,c("REGION",".id","variable"),function(x){mean(x$value)})
+
+plyr::daply(allreplicates2,c("REGION",".id","variable"),function(x){var(x$value)})
+

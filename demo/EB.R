@@ -1,5 +1,4 @@
-library(Isi2015Sae)
-data(baseball);attach(baseball)
+library(dataBaseball);attach(baseball)
 n = nrow(baseball)
 # variable of interest, y
 hat.P.bar = mean(baseball$hat.P)
@@ -96,24 +95,24 @@ seed = runif(1000, -1000, 1000)
 #bootstrap
 set.seed(1)
 bootrep<-
-replicate(1000,(function(){
-  #generate two levels of errors
-  vb_i = rnorm(n, 0, A.hat.pr)
-  eb_i = rnorm(n, 0, shi_i)
-  #generate bootstrap sample
-  y_i = mu_i + vb_i + eb_i
-  #ols based on bootstrap sample
-  beta.star_j = solve(t(x_mtx)%*%x_mtx)%*%(t(x_mtx)%*%y_i)
-  beta.star[j,] = beta.star_j
-  #estimate of A using PR method based on bootstrap sample
-  A_tld_j = 1/(n-1)*(sum((y_i-x_mtx%*%beta.star_j)^2)-sum(shi_i*(1-h_jj)))
-  A.star = max(0, A_tld_j)#estimate of B on bootstrap sample
-  B.star_j = shi_i/(shi_i+A.star)
-  #EBLUPs based on bootstrap sample
-  ELUP.star = (1-B.star_j)*y_i[1] + B.star_j*x_mtx[1,]%*%beta.star_j
-  #the difference between EBLUPs based on bootstrap sample and the generated theta_i
-  diff.theta = ELUP.star - mu_i[1] - vb_i[1]
-c(A_tld_j=A_tld_j,A.star=A.star,B.star_j=B.star_j,ELUP.star=ELUP.star,diff.theta=diff.theta)
+  replicate(1000,(function(){
+    #generate two levels of errors
+    vb_i = rnorm(n, 0, A.hat.pr)
+    eb_i = rnorm(n, 0, shi_i)
+    #generate bootstrap sample
+    y_i = mu_i + vb_i + eb_i
+    #ols based on bootstrap sample
+    beta.star_j = solve(t(x_mtx)%*%x_mtx)%*%(t(x_mtx)%*%y_i)
+    beta.star[j,] = beta.star_j
+    #estimate of A using PR method based on bootstrap sample
+    A_tld_j = 1/(n-1)*(sum((y_i-x_mtx%*%beta.star_j)^2)-sum(shi_i*(1-h_jj)))
+    A.star = max(0, A_tld_j)#estimate of B on bootstrap sample
+    B.star_j = shi_i/(shi_i+A.star)
+    #EBLUPs based on bootstrap sample
+    ELUP.star = (1-B.star_j)*y_i[1] + B.star_j*x_mtx[1,]%*%beta.star_j
+    #the difference between EBLUPs based on bootstrap sample and the generated theta_i
+    diff.theta = ELUP.star - mu_i[1] - vb_i[1]
+    c(A_tld_j=A_tld_j,A.star=A.star,B.star_j=B.star_j,ELUP.star=ELUP.star,diff.theta=diff.theta)
   })())
 mse.BL = mean(sapply(1:1000, function(i) g1i(bootrep["A.star",i])+g2i(bootrep["A.star",i]))) + mean((bootrep["ELUP.star",] - ELUP.pr[1])^2)
 mse.boot = mean((bootrep["diff.theta",])^2)
