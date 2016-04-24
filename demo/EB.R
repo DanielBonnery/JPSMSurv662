@@ -103,7 +103,6 @@ bootrep<-
     y_i = mu_i + vb_i + eb_i
     #ols based on bootstrap sample
     beta.star_j = solve(t(x_mtx)%*%x_mtx)%*%(t(x_mtx)%*%y_i)
-    beta.star[j,] = beta.star_j
     #estimate of A using PR method based on bootstrap sample
     A_tld_j = 1/(n-1)*(sum((y_i-x_mtx%*%beta.star_j)^2)-sum(shi_i*(1-h_jj)))
     A.star = max(0, A_tld_j)#estimate of B on bootstrap sample
