@@ -2,7 +2,7 @@ require("R2jags")
 require("plyr")
 require("abind")
 library("dataBaseball")
-data(baseball)
+data(baseball,package="dataBaseball")
 attach(baseball)
 m<-45
 #1. Run jags
