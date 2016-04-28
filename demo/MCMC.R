@@ -1,5 +1,6 @@
 require("R2jags")
 require("plyr")
+require("lattice")
 require("abind")
 library("dataBaseball")
 data(baseball,package="dataBaseball")
