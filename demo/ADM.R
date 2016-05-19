@@ -1,5 +1,5 @@
 #1. Load the data package and the data
-library("Isi2015Sae")
+
 data(baseball);
 attach(baseball)
 #2. Estimate via ADM method
