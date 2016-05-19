@@ -1,6 +1,6 @@
 #1. Load the data package and the data
 
-data(baseball);
+data(baseball,package=dataBaseball);
 attach(baseball)
 #2. Estimate via ADM method
 psi=hat.P*(1-hat.P)/nrow(baseball)
