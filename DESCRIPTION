@@ -1,19 +1,24 @@
 Package: JPSMSurv662
-Title: Data and programs for the JPSM Lectures "Surv662 Small Area Estimation methods" by Partha Lahiri
-Version: 0.0.0.9000
-Authors@R: person("Daniel", "Bonn\'{e}ry", , "dbonnery@umd.edu", role = c("aut", "cre"))
-Description: This package contains Data and programs for the JPSM Lectures "Surv662 Small Area Estimation methods" by Partha Lahiri
-Depends: R (>= 3.0.0)
+Type: Package
+Title: X
+Version: 1.0 
+Date: 2016-05-19
+Author: D. Bonnery
+Maintainer: D. Bonnery  <dbonnery@umd.edu>
 Imports: sae,
 	R2jags,
 	TANOVA,
-	lattice
+	lattice,
+	hbsae
+Suggests: 
+Description: Data
 Remotes: DanielBonnery/dataBeef,
-  DanielBonnery/dataCASEN,
-  DanielBonnery/dataCountyCropSurveySatellite,
-  DanielBonnery/dataBaseball,
-  DanielBonnery/dataCholesterol,
-  DanielBonnery/dataLaborForce,
-  jyklly/Rgbp/Rgbp
-License: GPL?
+	DanielBonnery/dataCASEN,
+	DanielBonnery/dataCountyCropSurveySatellite,
+	DanielBonnery/dataBaseball,
+	DanielBonnery/dataCholesterol,
+	DanielBonnery/dataLaborForce,
+	jyklly/Rgbp/Rgbp
+License: GPL (>= 2)
+LazyLoad: yes
 LazyData: true
