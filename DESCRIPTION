@@ -12,13 +12,7 @@ Imports: sae,
 	hbsae
 Suggests: 
 Description: Data
-Remotes: DanielBonnery/dataBeef,
-	DanielBonnery/dataCASEN,
-	DanielBonnery/dataCountyCropSurveySatellite,
-	DanielBonnery/dataBaseball,
-	DanielBonnery/dataCholesterol,
-	DanielBonnery/dataLaborForce,
-	jyklly/Rgbp/Rgbp
+Remotes: DanielBonnery/SaeComputations
 License: GPL (>= 2)
 LazyLoad: yes
 LazyData: true
